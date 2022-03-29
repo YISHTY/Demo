@@ -11,11 +11,11 @@ import java.util.List;
 
 public class UserGenerator {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://192.168.193.235:3306/demo?characterEncoding=utf-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8";
+        String url = "jdbc:mysql://124.223.197.249:3306/test?characterEncoding=utf-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8";
         List<String> tables = new ArrayList<>();
         tables.add("user");
 
-        FastAutoGenerator.create(url, "root", "admin@123")
+        FastAutoGenerator.create(url, "root", "root")
                 .globalConfig(builder -> {
                     builder.author("yzk")               //作者
                             .outputDir(System.getProperty("user.dir") + "\\src\\main\\java")    //输出路径(写到java目录)
