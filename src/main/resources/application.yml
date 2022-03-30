@@ -1,3 +1,9 @@
+run:
+  script:
+    c: F:\yzk_projects\demo\bat\runC.bat
+    cpp: F:\yzk_projects\demo\bat\runCpp.bat
+    python: D:\Anaconda\python.exe
+
 server:
   port: 9000
 
