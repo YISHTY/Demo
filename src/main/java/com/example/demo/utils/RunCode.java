@@ -80,8 +80,6 @@ public class RunCode {
         }
     }
 
-
-
     private String getJavaExecutePath() {
         if (javaExec == null) {
             String javaHome = System.getProperty("java.home");
