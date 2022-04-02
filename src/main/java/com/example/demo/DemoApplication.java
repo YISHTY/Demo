@@ -1,15 +1,35 @@
 package com.example.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.env.Environment;
+
+import java.net.InetAddress;
 
 @SpringBootApplication
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
+@ComponentScan("com.example.demo.config")
+@Slf4j
 public class DemoApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+    public static void main(String[] args) throws Exception {
+        ConfigurableApplicationContext application = new SpringApplicationBuilder().sources(DemoApplication.class)
+                // SpringMvc环境上下文使用(NONE:非web环境,上下文使用;REACTIVE:SpringMebFlux环境,上下文使用)
+                .web(WebApplicationType.SERVLET).headless(false).run(args);
+        Environment env = application.getEnvironment();
+        String ip = InetAddress.getLocalHost().getHostAddress();
+        String port = env.getProperty("server.port");
+        String contextPath = env.getProperty("server.servlet.context-path");
+        log.info("\n\033[31m--------------------------------------------------------------------\n\t" +
+                "\033[31m郑重提示:代码千万行，注释第一行。\n\t" +
+                "Knife4j: \thttp://" + ip + ":" + port + contextPath + "doc.html" + "\n\t" +
+                "Project Started Up Successfully" + "\n" +
+                "--------------------------------------------------------------------");
     }
 
 }

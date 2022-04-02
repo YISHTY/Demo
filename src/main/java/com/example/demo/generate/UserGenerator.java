@@ -13,7 +13,7 @@ public class UserGenerator {
     public static void main(String[] args) {
         String url = "jdbc:mysql://124.223.197.249:3306/test?characterEncoding=utf-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8";
         List<String> tables = new ArrayList<>();
-        tables.add("user");
+        tables.add("demo");
 
         FastAutoGenerator.create(url, "root", "root")
                 .globalConfig(builder -> {

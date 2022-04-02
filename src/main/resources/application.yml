@@ -1,11 +1,7 @@
-run:
-  script:
-    c: F:\yzk_projects\demo\bat\runC.bat
-    cpp: F:\yzk_projects\demo\bat\runCpp.bat
-    python: D:\Anaconda\python.exe
-
 server:
-  port: 9000
+  port: 8080
+  servlet:
+    context-path: /
 
 spring:
   datasource:
@@ -13,6 +9,12 @@ spring:
     username: root
     password: root
     driver-class-name: org.mariadb.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  devtools:
+    restart:
+      enabled: true
 
 mybatis-plus:
   global-config:
@@ -34,3 +36,9 @@ mybatis-plus:
 logging:
   level:
     com.baomidou.mybatisplus.samples.quickstart: debug
+
+run:
+  script:
+    c: F:\yzk_projects\demo\bat\runC.bat
+    cpp: F:\yzk_projects\demo\bat\runCpp.bat
+    python: D:\Anaconda\python.exe

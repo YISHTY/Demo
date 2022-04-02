@@ -1,22 +1,22 @@
 package com.example.demo.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ProcessResult {
     private int exitCode;
 
     private String output;
 
-    public ProcessResult(int exitCode, String output) {
+    private String filePath;
+
+    public ProcessResult(int exitCode, String output, String filePath) {
         this.exitCode = exitCode;
         this.output = output;
-    }
-
-    public int getExitCode() {
-        return exitCode;
-    }
-
-    public String getOutput() {
-        return output;
+        this.filePath = filePath;
     }
 }
 
