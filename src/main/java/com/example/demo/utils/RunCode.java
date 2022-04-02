@@ -12,6 +12,11 @@ import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * @author  yzk
+ * @since   2022/4/2 16:11
+ * @version 1.0
+**/
 
 @Component
 public class RunCode {
@@ -30,7 +35,6 @@ public class RunCode {
 
     public ProcessResult runCode(String type, String code) throws IOException, InterruptedException {
         // 获取系统缓存文件的位置
-//        String tmpDir = System.getProperty("java.io.tmpdir");
         String tmpDir = "temp";
         // 随机文件夹的名字
         File pwd = Paths.get(tmpDir, String.format("%016x", nextLong.incrementAndGet())).toFile();
@@ -71,13 +75,13 @@ public class RunCode {
         Process p = pb.start();
         System.out.println(p.getOutputStream());
         if (p.waitFor(5, TimeUnit.SECONDS)) {
-            String result = null;
+            String result;
             try (InputStream input = p.getInputStream()) {
                 result = readAsString(input, Charset.defaultCharset());
             }
             return new ProcessResult(p.exitValue(), result, pwd.getAbsolutePath());
         } else {
-            System.err.println(String.format("Error: process %s timeout. destroy forcibly.", p.pid()));
+            System.err.printf("Error: process %s timeout. destroy forcibly.%n", p.pid());
             p.destroyForcibly();
             return new ProcessResult(p.exitValue(), "运行超时", null);
         }

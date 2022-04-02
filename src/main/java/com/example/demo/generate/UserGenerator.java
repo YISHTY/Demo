@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author  yzk
+ * @since   2022/4/2 16:11
+ * @version 1.0
+**/
+
 public class UserGenerator {
     public static void main(String[] args) {
         String url = "jdbc:mysql://124.223.197.249:3306/test?characterEncoding=utf-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8";

@@ -15,11 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * @author  yzk
+ * @since   2022/4/2 16:10
+ * @version 1.0
+**/
+
 @RestController
 @RequestMapping(value = "/code")
 @Api(tags = "代码编译")
 @Slf4j
-public class demoController {
+public class DemoController {
 
     @Autowired
     private RunCode runCode;

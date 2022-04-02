@@ -11,6 +11,12 @@ import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
 
+/**
+ * @author  yzk
+ * @since   2022/4/2 16:11
+ * @version 1.0
+**/
+
 @SpringBootApplication
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
 @ComponentScan("com.example.demo.config")

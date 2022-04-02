@@ -11,10 +11,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * @author
- * @since
+ * @author  yzk
+ * @since   2022/4/2 16:10
  * @version 1.0
- * @desc
 **/
 
 @Configuration
