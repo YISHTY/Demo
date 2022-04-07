@@ -6,7 +6,6 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -19,7 +18,6 @@ import java.net.InetAddress;
 
 @SpringBootApplication
 @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
-@ComponentScan("com.example.demo.config")
 @Slf4j
 public class DemoApplication {
 
@@ -32,7 +30,6 @@ public class DemoApplication {
         String port = env.getProperty("server.port");
         String contextPath = env.getProperty("server.servlet.context-path");
         log.info("\n\033[31m--------------------------------------------------------------------\n\t" +
-                "\033[31m郑重提示:代码千万行，注释第一行。\n\t" +
                 "Knife4j: \thttp://" + ip + ":" + port + contextPath + "doc.html" + "\n\t" +
                 "Project Started Up Successfully" + "\n" +
                 "--------------------------------------------------------------------");

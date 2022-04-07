@@ -33,8 +33,9 @@ public class DemoController {
     @PostMapping(value = "/runCode")
     @ApiImplicitParam(name = "code",value = "代码",required = true)
     @ApiOperation(value = "测试接口")
-    public String payType(@RequestParam(value = "code") String code) throws Exception {
-        ProcessResult processResult = runCode.runCode("C", code);
+    public String runCode(@RequestParam(value = "head") String head,@RequestParam(value = "code") String code,@RequestParam(value = "type") String type) throws Exception {
+        code = head+"\r\n"+code;
+        ProcessResult processResult = runCode.runCode(type, code);
         Process p = null;
         try {
             p = Runtime.getRuntime().exec(processResult.getFilePath() + "\\a.exe");
@@ -51,4 +52,10 @@ public class DemoController {
         return output + "\n" + p.exitValue();
     }
 
+    @PostMapping(value = "/test")
+    @ApiImplicitParam(name = "code",value = "代码",required = true)
+    @ApiOperation(value = "测试接口")
+    public String test(@RequestParam(value = "code") String code,@RequestParam(value = "type") String type) throws Exception {
+        return code;
+    }
 }
