@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,11 +27,11 @@ public class DemoController {
     @Autowired
     private RunCode runCode;
 
+    @CrossOrigin
     @PostMapping(value = "/runCode")
-    @ApiImplicitParam(name = "code",value = "代码",required = true)
-    @ApiOperation(value = "测试接口")
-    public String runCode(@RequestParam(value = "head") String head,@RequestParam(value = "code") String code,@RequestParam(value = "type") String type) throws Exception {
-        code = head+"\r\n"+code;
+    @ApiImplicitParam(name = "code", value = "代码", required = true)
+    @ApiOperation(value = "代码运行")
+    public String runCode(@RequestParam(value = "code") String code, @RequestParam(value = "type") String type) throws Exception {
         ProcessResult processResult = runCode.runCode(type, code);
         Process p = null;
         try {
@@ -52,10 +49,11 @@ public class DemoController {
         return output + "\n" + p.exitValue();
     }
 
+    @CrossOrigin
     @PostMapping(value = "/test")
-    @ApiImplicitParam(name = "code",value = "代码",required = true)
+    @ApiImplicitParam(name = "code", value = "代码", required = true)
     @ApiOperation(value = "测试接口")
-    public String test(@RequestParam(value = "code") String code,@RequestParam(value = "type") String type) throws Exception {
+    public String test(@RequestParam(value = "code") String code) {
         return code;
     }
 }
