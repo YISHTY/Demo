@@ -59,7 +59,6 @@ public class DemoController {
     @ApiImplicitParam(name = "code", value = "代码", required = true)
     @ApiOperation(value = "测试接口")
     public String test(@RequestParam(value = "code") String code) {
-        runCodeService.runCLangCode(code);
-        return code;
+        return runCodeService.runCLangCode(code);
     }
 }

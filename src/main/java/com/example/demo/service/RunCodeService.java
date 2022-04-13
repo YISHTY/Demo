@@ -50,11 +50,13 @@ public class RunCodeService {
                 if (compileResult.equals(""))
                 //编译不出错的情况，replaceAll将\n换成HTML的换行，空格换成HTML的空格
                 {
-                    return execCmd(CODE_PATH + "test.exe", null).replaceAll("\n", "<br/>").replaceAll(" ", " ");
+                    return execCmd(CODE_PATH + "test.exe", null);
+//                    return execCmd(CODE_PATH + "test.exe", null).replaceAll("\n", "<br/>").replaceAll(" ", " ");
                 } else {
                     //编译出错，找到error的位置，返回error及其后的信息
                     int errorIndex = compileResult.indexOf("error");
-                    return compileResult.substring(errorIndex).replaceAll("\n", "<br/>").replaceAll(" ", " ");
+                    return compileResult.substring(errorIndex);
+//                    return compileResult.substring(errorIndex).replaceAll("\n", "<br/>").replaceAll(" ", " ");
                 }
             }
         });
