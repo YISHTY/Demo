@@ -22,8 +22,8 @@ export default {
     runCode() {
       axios({
         method: "post",
-        url: "http://172.4.56.177:8080/code/runCode",
-        params: { code: this.code, type: "C" },
+        url: "http://172.4.56.177:8080/code/test",
+        params: { code: this.code },
         // headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }).then((res) => {
           this.reasult = res.data;
