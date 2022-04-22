@@ -1,4 +1,5 @@
 #include<stdio.h>
 int main(){
- printf("hell");
+printf("1111");
+return 0;
 }

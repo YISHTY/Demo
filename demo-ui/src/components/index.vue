@@ -3,6 +3,7 @@
     <textarea v-model="code"></textarea>
     <button @click="runCode">运行</button>
     <textarea v-model="reasult"></textarea>
+    <a href="/runCode/runCode">跳转</a>
   </div>
 </template>
 
@@ -27,7 +28,6 @@ export default {
         // headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }).then((res) => {
           this.reasult = res.data;
-        console.log(res.data);
       });
     },
   },

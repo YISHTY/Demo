@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "codemirror": "^5.65.3",
     "vue": "^2.5.2",
+    "vue-baidu-map": "^0.21.22",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
