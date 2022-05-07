@@ -61,4 +61,12 @@ public class DemoController {
     public String test(@RequestParam(value = "code") String code) {
         return runCodeService.runCLangCode(code);
     }
+
+    @CrossOrigin
+    @PostMapping(value = "/compileCode")
+    @ApiImplicitParam(name = "code", value = "代码", required = true)
+    @ApiOperation(value = "测试接口")
+    public String compileCode(@RequestParam(value = "code") String code) {
+        return runCodeService.runCLangCode(code);
+    }
 }

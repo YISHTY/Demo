@@ -62,7 +62,7 @@ public class RunCodeService {
         });
         executor.execute(futureTask);
         try {
-            //编译运行完毕将text.exe的进程kill
+            //编译运行完毕将test.exe的进程kill
             execCmd("taskkill /f /im test.exe", null);
             log.info("killed test.exe");
         } catch (Exception e) {
